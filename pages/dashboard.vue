@@ -1,51 +1,6 @@
 <template>
   <div class="dashboard--container">
-    <div class="dashboard-view">
-      <div class="hor--pane w-full">
-        <h3 class="font-weight-bold text-2xl">Users</h3>
-        <div class="select-set">
-          <select class="select select-bordered select-sm">
-            <option disabled selected>Location</option>
-            <option>Small Apple</option>
-            <option>Small Orange</option>
-            <option>Small Tomato</option>
-          </select>
-          <div class="border-l border-gray-400 mx-3"></div>
-          <select class="select select-bordered select-sm">
-            <option disabled selected>Nigeria</option>
-            <option>Small Apple</option>
-            <option>Small Orange</option>
-            <option>Small Tomato</option>
-          </select>
-        </div>
-      </div>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
-          <!-- head -->
-          <thead>
-            <tr class="text-primary">
-              <th class="w-full font-medium normal-case">Name</th>
-              <th class="font-medium normal-case">Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- row 1 -->
-            <tr
-              v-for="(user, i) in users"
-              :key="i"
-              :class="{
-                'row--active':
-                  $route.path.indexOf(`/dashboard/${user.id}`) !== -1
-              }"
-              @click="toggleTable(user.id, i)"
-            >
-              <td>{{ user.name }}</td>
-              <td>{{ user.location }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <div class="dashboard-view"></div>
     <nuxt-child />
   </div>
 </template>

@@ -105,9 +105,6 @@
             </div>
           </div>
         </div>
-        <div class="w-full flex justify-end">
-          <nuxt-link to="/forgot">Forgot password</nuxt-link>
-        </div>
         <div class="w-full mt-5">
           <button
             class="w-full btn btn-primary flex items-center"

@@ -3,7 +3,7 @@
     <div class="card auth--card bg-base-100/40 backdrop-blur">
       <div class="card-body items-center">
         <h2 class="card-title text-center font-medium text-h5">
-          Log in as an Admin
+          Log in to get started
         </h2>
         <div class="w-full mt-4">
           <div class="form-control w-full">
@@ -46,6 +46,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="w-full flex justify-end">
+          <nuxt-link to="/forgot">Forgot password</nuxt-link>
         </div>
         <div class="w-full mt-5">
           <button
