@@ -18,17 +18,17 @@
             </div>
             <i class="iconly-Arrow-Right-2 text-white icli"></i>
           </nuxt-link>
-          <div class="kyc--panel w-full">
+          <nuxt-link to="/kyc/addAccount" class="kyc--panel w-full active--panel">
             <div class="number--text-container">
               <span class="number block">2</span>
               <span class="block ml-3 panel--title">Add account details</span>
             </div>
             <i class="iconly-Arrow-Right-2 text-white icli"></i>
-          </div>
+          </nuxt-link>
           <div class="kyc--panel w-full">
             <div class="number--text-container">
               <span class="number block">3</span>
-              <span class="block ml-3 panel--title">Add account details</span>
+              <span class="block ml-3 panel--title">Set Transaction Pin</span>
             </div>
             <i class="iconly-Arrow-Right-2 text-white icli"></i>
           </div>
