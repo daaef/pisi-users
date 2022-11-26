@@ -113,6 +113,20 @@
 
               <vs-td :data="data[indextr].id">
                 <div class="flex justify-end">
+                  <span
+                    class="block w-40 rounded-md px-4 py-2 text-center"
+                    :class="{
+                      'bg-success/40': data[indextr].payState.trim() === 'Paid',
+                      'border-blue-900 border-solid border text-blue-900':
+                        data[indextr].payState.trim() === 'Waiting...',
+                      'bg-primary text-white':
+                        data[indextr].payState.trim() === 'Request'
+                    }"
+                    >{{ data[indextr].payState }}</span
+                  >
+                </div>
+
+                <!--                <div class="flex justify-end">
                   <vs-button v-if="data[indextr].payState.trim() === 'Request'">
                     {{ data[indextr].payState }}
                   </vs-button>
@@ -128,7 +142,7 @@
                   >
                     {{ data[indextr].payState }}
                   </vs-button>
-                </div>
+                </div>-->
               </vs-td>
             </vs-tr>
           </template>
