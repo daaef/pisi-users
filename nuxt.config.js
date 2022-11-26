@@ -8,8 +8,8 @@ export default {
       theme: 'light',
       'data-theme': 'light'
     },
-    titleTemplate: '%s - admin',
-    title: 'admin',
+    titleTemplate: '%s - users',
+    title: 'Exchange - Users',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -30,6 +30,10 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css'
       }
     ]
   },
@@ -37,6 +41,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/style.scss',
+    '@/assets/cryptofont.min.css',
     'viconly/src/iconly/style.css',
     'viconly/src/iconly/bulk-style.css'
   ],
@@ -45,7 +50,8 @@ export default {
   plugins: [
     { src: '@/plugins/iconly.js' },
     { src: '~/plugins/repository' },
-    { src: '~/plugins/services.plugin.js' }
+    { src: '~/plugins/services.plugin.js' },
+    { src: '~/plugins/vuesax.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -56,8 +62,8 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/vuetify
+    // '@nuxtjs/stylelint-module',
+    // https://go.nuxtjs.dev/vuetisssssfy
     '@nuxtjs/vuetify'
   ],
 
@@ -120,7 +126,7 @@ export default {
     redirect: {
       login: '/auth/login',
       logout: '/auth/login',
-      home: '/dashboard'
+      home: '/'
     },
     fullPathRedirect: true
   },

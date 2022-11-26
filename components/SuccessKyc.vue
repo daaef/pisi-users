@@ -1,53 +1,57 @@
 <template>
   <div class="auth--view flex justify-center">
     <div class="card auth--card bg-base-100/40 backdrop-blur">
-
       <div class="card-body items-start">
-          <h2 class="card-title w-full justify-center text-primary  font-medium text-h5">
-            {{ title }}
+        <div class="flex justify-center mb-5 w-full">
+          <img class="check" src="/check.png" alt="" />
+        </div>
+        <h2
+          class="card-title w-full justify-center items-center text-primary font-medium text-h5"
+        >
+          {{ title }}
         </h2>
         <p class="text-center">
-         {{ message }}
+          {{ message }}
         </p>
-
         <div class="w-full">
-          <nuxt-link :to="buttonUrl"
+          <nuxt-link
+            :to="buttonUrl"
             class="w-full btn btn-primary flex items-center"
-
           >
             <span class="text-white text-lg">{{ buttonText }}</span>
           </nuxt-link>
         </div>
-
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'SuccessKyc',
 
-  props:{
+  props: {
     title: {
-      type:String,
-      default:""
+      type: String,
+      default: ''
     },
     message: {
-      type:String,
-      default:""
+      type: String,
+      default: ''
     },
-    buttonText:{
-      type:String,
-      default:"continue"
+    buttonText: {
+      type: String,
+      default: 'continue'
     },
-    buttonUrl:{
-      type:String,
-      default:"/dashboard"
+    buttonUrl: {
+      type: String,
+      default: '/dashboard'
     }
-
   }
 }
 </script>
+<style>
+.check {
+  width: 60px;
+}
+</style>

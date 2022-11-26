@@ -1,18 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar class="px-7" fixed app elevation="0">
-      <div class="flex justify-between">
-        <nuxt-link class="flex items-center" to="/dashboard">
-          <img class="img-contain" src="/auth-logo.png" alt="" />
-        </nuxt-link>
-
-        <button class="btn btn-primary" @click="logout">
-          <span class="text-white">Log out</span>
-        </button>
-      </div>
-    </v-app-bar>
     <v-main>
-      <Nuxt />
+      <LayoutSideBar />
+      <div class="flex flex-col">
+        <LayoutNavBar />
+        <Nuxt />
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -22,7 +15,8 @@ export default {
   name: 'DefaultLayout',
   data() {
     return {
-      clipped: false
+      clipped: false,
+      active: false
     }
   },
   methods: {
@@ -40,3 +34,14 @@ export default {
   }
 }
 </script>
+<style>
+.v-main__wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.vs-sidebar--footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 20px;
+}
+</style>

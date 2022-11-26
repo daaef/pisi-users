@@ -109,10 +109,17 @@
           <button
             class="w-full btn btn-primary flex items-center"
             :class="loading ? 'loading' : ''"
+            @click.prevent="$router.push('/kyc/')"
+          >
+            <span>Continue</span> <ic name="Arrow-Right" /></button
+          ><!--
+          <button
+            class="w-full btn btn-primary flex items-center"
+            :class="loading ? 'loading' : ''"
             @click.prevent="userSignup"
           >
             <span>Continue</span> <ic name="Arrow-Right" />
-          </button>
+          </button>-->
         </div>
         <div class="w-full mt-5">
           <p class="text-center">
