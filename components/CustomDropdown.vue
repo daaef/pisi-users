@@ -1,7 +1,16 @@
 <template>
-  <div class="custom--dropdown-select">
-    <a href="#" class="drop--label"></a>
-    <div class="dropdown--select"></div>
+  <div class="relative custom-input">
+    <vs-select v-model="select1" class="selectExample" label="Receive">
+      <vs-select-item
+        v-for="(item, index) in dropData"
+        :key="index"
+        :value="item.value"
+        :text="item.text"
+      />
+    </vs-select>
+    <div class="flag">
+      <span class="fi fi-ng rounded-circle fis"></span>
+    </div>
   </div>
 </template>
 
@@ -15,6 +24,11 @@ export default {
       default() {
         return []
       }
+    }
+  },
+  data() {
+    return {
+      currency: {}
     }
   }
 }

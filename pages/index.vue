@@ -44,23 +44,7 @@
               </vs-dropdown>
             </div>
             <img class="mt-5 mx-3" src="/exchange.svg" alt="" />
-            <div class="relative custom-input">
-              <vs-select
-                v-model="select1"
-                class="selectExample"
-                label="Receive"
-              >
-                <vs-select-item
-                  v-for="(item, index) in options1"
-                  :key="index"
-                  :value="item.value"
-                  :text="item.text"
-                />
-              </vs-select>
-              <div class="flag">
-                <span class="fi fi-ng rounded-circle fis"></span>
-              </div>
-            </div>
+            <CustomDropdown :drop-data="options1" />
             <vs-button
               class="mt-4 ml-5"
               type="filled"
@@ -113,16 +97,23 @@
 
               <vs-td :data="data[indextr].id">
                 <div class="flex justify-end">
-                  <span
-                    class="block w-40 rounded-md px-4 py-2 text-center"
-                    :class="{
-                      'bg-success/40': data[indextr].payState.trim() === 'Paid',
-                      'border-blue-900 border-solid border text-blue-900':
-                        data[indextr].payState.trim() === 'Waiting...',
-                      'bg-primary text-white':
-                        data[indextr].payState.trim() === 'Request'
-                    }"
-                    >{{ data[indextr].payState }}</span
+                  <vs-button
+                    v-if="data[indextr].payState.trim() === 'Waiting...'"
+                    color="primary"
+                    type="border"
+                    >{{ data[indextr].payState }}</vs-button
+                  >
+                  <vs-button
+                    v-if="data[indextr].payState.trim() === 'Request'"
+                    color="primary"
+                    @click="dialog = true"
+                    >{{ data[indextr].payState }}</vs-button
+                  >
+                  <vs-button
+                    v-if="data[indextr].payState.trim() === 'Paid'"
+                    color="rgb(5 168 84 / 40%)"
+                    text-color="#0a0a0a"
+                    >{{ data[indextr].payState }}</vs-button
                   >
                 </div>
 
@@ -149,6 +140,68 @@
         </vs-table>
       </div>
     </div>
+    <v-dialog v-model="dialog" max-width="290">
+      <v-card class="my-card">
+        <a href="#" class="close-icon">
+          <vs-icon color="primary" size="medium" icon="close"></vs-icon>
+        </a>
+        <v-card-text>
+          <div class="top--sect bg-secondary p-3">
+            <div class="flex justify-between w-full">
+              <span class="text-gray-500">
+                <i class="iconly-Upload icli"></i>
+                Sell
+              </span>
+              <span class="text-gray-500">
+                <i class="iconly-Download icli"></i>
+                Buy
+              </span>
+            </div>
+            <div class="px-3 flex items-center justify-between w-full">
+              <div class="flex flex-none items-center">
+                <span
+                  class="block mr-1 rounded-circle bg-primary text-white text-center w-5 h-5"
+                  >$</span
+                ><span class="font-medium">USD</span>
+              </div>
+              <div>
+                <img src="/transfer--arrows.png" alt="" />
+              </div>
+              <div class="flex flex-none items-center">
+                <span
+                  class="block mr-1 rounded-circle bg-success text-white text-center w-5 h-5"
+                  >₦</span
+                ><span class="font-medium">NGN</span>
+              </div>
+            </div>
+            <div class="flex justify-between w-full">
+              <span class="text-primary">$230.00</span>
+              <span class="text-success">₦63,634.92.00</span>
+            </div>
+            <hr />
+            <div class="flex text-gray-500 justify-between w-full">
+              <span>Official rate</span>
+              <span class="font-medium">$1 = ₦433.72</span>
+            </div>
+          </div>
+          <span class="text-center w-full"
+            >Input the amount you would like to buy</span
+          >
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn color="green darken-1" text @click="dialog = false">
+            Continue
+          </v-btn>
+
+          <v-btn color="green darken-1" text @click="dialog = false">
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -160,6 +213,7 @@ export default {
     return {
       send: '',
       receive: '',
+      dialog: false,
       selected: [],
       currentCoin: {
         id: 1,
@@ -308,5 +362,33 @@ a.vs-dropdown--item-link {
 .exchange--inputs {
   display: flex;
   align-items: center;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.my-card {
+  .v-card__text {
+    padding-top: 50px !important;
+    display: grid;
+    grid-gap: 15px;
+    .top--sect {
+      border-radius: 10px;
+      width: 100%;
+      display: grid;
+      grid-gap: 7px;
+      .flex {
+        flex: none !important;
+      }
+      img {
+        height: 10px;
+      }
+      hr {
+        border-top: solid 1px #2936ac;
+      }
+    }
+  }
 }
 </style>
