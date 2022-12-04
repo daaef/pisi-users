@@ -17,3 +17,48 @@
 .toasted-container.top-right {
   top: 0 !important;
 }
+
+.vs-button--text {
+  display: flex;
+  align-items: center !important;
+}
+
+.custom-input {
+  .vs-con-input-label {
+    width: 100% !important;
+  }
+  .vs-input--input.normal {
+    padding-left: 92px;
+  }
+  .con-select {
+    width: 100px;
+  }
+  .input-span-placeholder {
+    left: 92px;
+    //height: 32.17px;
+    bottom: 0;
+    top: 0;
+    font-size: 1rem;
+    padding-left: 0;
+  }
+  .vs-con-dropdown {
+    position: absolute;
+    bottom: calc(32.17px / 2);
+    transform: translateY(50%);
+    left: 5px;
+  }
+  .vs-select--input {
+  }
+  .vs-select--input {
+    padding-left: 25px;
+  }
+  .flag {
+    position: absolute;
+    bottom: calc(36.17px / 2);
+    transform: translateY(50%);
+    left: 5px;
+  }
+}
+.con-vs-dropdown--menu {
+  z-index: 40000000 !important;
+}

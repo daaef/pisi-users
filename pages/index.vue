@@ -140,68 +140,7 @@
         </vs-table>
       </div>
     </div>
-    <v-dialog v-model="dialog" max-width="290">
-      <v-card class="my-card">
-        <a href="#" class="close-icon">
-          <vs-icon color="primary" size="medium" icon="close"></vs-icon>
-        </a>
-        <v-card-text>
-          <div class="top--sect bg-secondary p-3">
-            <div class="flex justify-between w-full">
-              <span class="text-gray-500">
-                <i class="iconly-Upload icli"></i>
-                Sell
-              </span>
-              <span class="text-gray-500">
-                <i class="iconly-Download icli"></i>
-                Buy
-              </span>
-            </div>
-            <div class="px-3 flex items-center justify-between w-full">
-              <div class="flex flex-none items-center">
-                <span
-                  class="block mr-1 rounded-circle bg-primary text-white text-center w-5 h-5"
-                  >$</span
-                ><span class="font-medium">USD</span>
-              </div>
-              <div>
-                <img src="/transfer--arrows.png" alt="" />
-              </div>
-              <div class="flex flex-none items-center">
-                <span
-                  class="block mr-1 rounded-circle bg-success text-white text-center w-5 h-5"
-                  >₦</span
-                ><span class="font-medium">NGN</span>
-              </div>
-            </div>
-            <div class="flex justify-between w-full">
-              <span class="text-primary">$230.00</span>
-              <span class="text-success">₦63,634.92.00</span>
-            </div>
-            <hr />
-            <div class="flex text-gray-500 justify-between w-full">
-              <span>Official rate</span>
-              <span class="font-medium">$1 = ₦433.72</span>
-            </div>
-          </div>
-          <span class="text-center w-full"
-            >Input the amount you would like to buy</span
-          >
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Continue
-          </v-btn>
-
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Close
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <RequestOffer @closeModal="dialog = false" :dialog="dialog" />
   </div>
 </template>
 
@@ -213,6 +152,8 @@ export default {
     return {
       send: '',
       receive: '',
+      sell: '',
+      buy: '',
       dialog: false,
       selected: [],
       currentCoin: {
@@ -306,39 +247,6 @@ export default {
     border: none !important;
     background: #eeeeee;
   }
-  .custom-input {
-    .vs-input--input.normal {
-      padding-left: 92px;
-    }
-    .con-select {
-      width: 100px;
-    }
-    .input-span-placeholder {
-      left: 92px;
-      //height: 32.17px;
-      bottom: 0;
-      top: 0;
-      font-size: 1rem;
-      padding-left: 0;
-    }
-    .vs-con-dropdown {
-      position: absolute;
-      bottom: calc(32.17px / 2);
-      transform: translateY(50%);
-      left: 5px;
-    }
-    .vs-select--input {
-    }
-    .vs-select--input {
-      padding-left: 25px;
-    }
-    .flag {
-      position: absolute;
-      bottom: calc(36.17px / 2);
-      transform: translateY(50%);
-      left: 5px;
-    }
-  }
   .table {
     width: 100%;
     .rate--country {
@@ -355,9 +263,6 @@ export default {
 a.vs-dropdown--item-link {
   display: flex !important;
   align-items: center;
-}
-.con-vs-dropdown--menu {
-  z-index: 400000 !important;
 }
 .exchange--inputs {
   display: flex;
@@ -389,6 +294,47 @@ a.vs-dropdown--item-link {
         border-top: solid 1px #2936ac;
       }
     }
+    .bottom--sect {
+      border-radius: 10px;
+      width: 100%;
+      display: grid;
+      grid-gap: 7px;
+
+      .flex {
+        flex: none !important;
+      }
+    }
   }
+}
+.custom-curr-input {
+  position: relative;
+  width: 100%;
+  .vs-con-input-label {
+    width: 100%;
+  }
+  .vs-input--input {
+    padding-left: 62px;
+  }
+  .vs-input--placeholder {
+    left: 57px;
+  }
+  .input--addon {
+    background: #e8e8f3;
+    position: absolute;
+    padding-left: 5px;
+    padding-right: 5px;
+    bottom: calc(32.4375px / 2);
+    height: 32.4375px;
+    display: flex;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    align-items: center;
+    transform: translateY(50%);
+  }
+}
+.exchange-footer {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  grid-gap: 10px;
 }
 </style>

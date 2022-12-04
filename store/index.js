@@ -150,6 +150,29 @@ const getDefaultState = () => {
         icon: 'polygon',
         selected: false
       }
+    ],
+    currencies: [
+      {
+        id: 1,
+        coin: 'Naira',
+        name: 'NGN',
+        icon: 'ngn',
+        selected: false
+      },
+      {
+        id: 2,
+        coin: 'Euros',
+        name: 'EUR',
+        icon: 'eur',
+        selected: false
+      },
+      {
+        id: 3,
+        coin: 'Dollars',
+        name: 'USD',
+        icon: 'usd',
+        selected: false
+      }
     ]
   }
 }

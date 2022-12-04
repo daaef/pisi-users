@@ -1,6 +1,7 @@
 <template>
   <div class="action--navigation">
-    <vs-button>Create sell offer</vs-button>
+    <vs-button @click="dialog = true">Create sell offer</vs-button>
+    <MakeOffer @closeModal="dialog = false" :dialog="dialog" />
   </div>
 </template>
 
@@ -10,7 +11,7 @@ export default {
   data() {
     return {
       activeItem: 0,
-      active: false
+      dialog: false
     }
   }
 }

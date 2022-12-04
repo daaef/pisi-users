@@ -104,7 +104,7 @@ export default {
     ]
   },
 
-  auth: {
+ /* auth: {
     strategies: {
       local: {
         user: {
@@ -128,7 +128,7 @@ export default {
       home: '/'
     },
     fullPathRedirect: true
-  },
+  },*/
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
@@ -162,9 +162,9 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  router: {
+  /*router: {
     middleware: ['auth']
-  },
+  },*/
   build: {
     transpile: ['defu']
   }
