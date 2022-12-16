@@ -3,7 +3,7 @@
     <div class="card auth--card bg-base-100/40 backdrop-blur">
       <div class="card-body items-start">
         <div class="flex justify-center mb-5 w-full">
-          <img class="check" src="/check.png" alt="" />
+          <img class="check" src="/check.svg" alt="" />
         </div>
         <h2
           class="card-title w-full justify-center items-center text-primary font-medium text-h5"

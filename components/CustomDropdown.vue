@@ -1,6 +1,6 @@
 <template>
   <div class="relative custom-input">
-    <vs-select v-model="select1" class="selectExample" label="Receive">
+    <vs-select v-model="currency" class="selectExample" label="Receive">
       <vs-select-item
         v-for="(item, index) in dropData"
         :key="index"

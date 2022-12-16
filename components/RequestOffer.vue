@@ -155,7 +155,7 @@
           <div
             class="pb-4 flex flex-col items-center justify-center text-center"
           >
-            <img src="/succcess.svg" alt="success check mark" />
+            <img src="/check.svg" alt="success check mark" />
             <div class="message">
               <h3 class="text-primary text-lg my-2">Payment successful</h3>
               <p>
