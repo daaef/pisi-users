@@ -82,8 +82,14 @@
               </vs-dropdown-menu>
             </vs-dropdown>
           </div>
-          <div class="relative">
-            <h3>Rate</h3>
+          <div class="relative input--rate">
+            <vs-input
+              class="absolute"
+              v-model="buy"
+              label="Rate"
+              type="number"
+              placeholder="0.00"
+            />
             <div class="input-styled">
               <span class="text-gray-400">$1</span>
               <span class="text-primary large-text">=</span>
@@ -257,6 +263,12 @@ export default {
     &.large-text {
       font-size: 1.6rem;
     }
+  }
+}
+.input--rate {
+  .vs-con-input-label {
+    width: 100%;
+    position: absolute;
   }
 }
 </style>
